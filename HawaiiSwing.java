@@ -1,4 +1,4 @@
-public class HawaiiSwing extends Ride{
+public class HawaiiSwing extends HighRiskRide{
 	
 	public HawaiiSwing(String rideName, double price, double area){
 		super(rideName, price, area);
@@ -8,5 +8,6 @@ public class HawaiiSwing extends Ride{
 		System.out.println("1 " + getRideName() + " ticket");
 		System.out.println(getRideName() + " is swinging. Attentiooooooon!!! HOOOOOOOOONK!");
 		ticketSold(cashregister);
+		rideMaintenance();
 	}
 }

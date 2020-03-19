@@ -34,8 +34,14 @@ public abstract class Ride{
 	public double getRevenue(){
 		return revenue;
 	}
+	public void setRevenue(double revenue){
+		this.revenue = revenue;
+	}
 	public int getNumberSoldTickets(){
 		return numberSoldTickets;
+	}
+	public void setNumberSoldTickets(int numberSoldTickets){
+		this.numberSoldTickets = numberSoldTickets;
 	}
 	
 	public void ticketSold(CashRegister cashregister){

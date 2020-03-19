@@ -10,14 +10,27 @@ public class Kermis{
 		boolean quit = false;
 		
 		CashRegister cashregister = new CashRegister();
+		TaxInspector taxinspector = new TaxInspector();
 		
 		//Create all rides
 		BumperCars bumpercars = new BumperCars("Bumpy Bumper Cars", 2.50, 10);
 		Spin spin = new Spin("Top Spin", 2.25, 10);
+		spin.setLimitOfRides(5);
 		HallOfMirrors  hallofmirrors = new HallOfMirrors("Hall of Mirrors", 2.75, 10);
 		GhostTrain ghosttrain = new GhostTrain("Spooky Ghost Train", 3.20, 10);
 		HawaiiSwing hawaiiswing = new HawaiiSwing("Hawaii Swing", 2.90, 10);
+		hawaiiswing.setLimitOfRides(10);
 		LadderClimb ladderclimb = new LadderClimb("Ladder Climb game", 5.00, 10);
+		
+		//Array of rides
+//		Ride[] arrayOfRides = new Ride[]{bumpercars, spin, hallofmirrors, ghosttrain, hawaiiswing, ladderclimb};
+		Ride[] arrayOfRides = new Ride[6];
+		arrayOfRides[0] = bumpercars;
+		arrayOfRides[1] = spin;
+		arrayOfRides[2] = hallofmirrors;
+		arrayOfRides[3] = ghosttrain;
+		arrayOfRides[4] = hallofmirrors;
+		arrayOfRides[5] = ladderclimb;
 		
 		
 		/*
@@ -73,7 +86,8 @@ public class Kermis{
 											ghosttrain.getRideName() + ": " +  ghosttrain.getRevenue() + "\n" +
 											hawaiiswing.getRideName() + ": " + hawaiiswing.getRevenue() + "\n" +
 											ladderclimb.getRideName() + ": " + ladderclimb.getRevenue() + "\n" +
-											"Total revenue: " + cashregister.getTotalRevenue());
+											"Total revenue: " + cashregister.getTotalRevenue() + "\n" + 
+											"Total taxes paid: " + cashregister.getTotalTaxesPaid());
 						break;
 					case 't': //Show ticket sales
 						System.out.println("*************\nTicket sales   \n*************");
@@ -98,6 +112,8 @@ public class Kermis{
 				System.out.println("Please choose an option from the option menu.");
 				continue;
 			}
+			//Paying gamblingtaxes
+			taxinspector.visitKermis(arrayOfRides, cashregister);			
 		} //Close while loop
 	} //Close main
 } //Close class
